@@ -20,20 +20,20 @@ def extract_solution(node):
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 def uniform_cost_tree_search():
-    print("delete this")
+    pass
 
 
 def uniform_cost_graph_search():
-    print("delete this")
+    pass
 
 
 def iterative_deepening_tree_search():
-    print("delete this")
+    pass
 
 
 def depth_limited_search():
     # This is a helper function for iterative_deepening_tree_search
-    print("delete this")
+    pass
 
 
 # Press the green button in the gutter to run the script.
