@@ -1,7 +1,3 @@
-import numpy as np
-from queue import PriorityQueue
-
-
 # Will be an important part of Node class. Includes agent location and list of dirty squares
 class State:
 
@@ -16,7 +12,8 @@ class State:
         self.agent_location = agent_location
 
     def clean_room(self, room_tuple):
-        self.dirty_squares.pop(room_tuple)
+        if room_tuple in self.dirty_squares:
+            self.dirty_squares.remove(room_tuple)
 
     def current_room_is_clean(self):
         # Check if room tuple exists in dirty tuple list
@@ -42,7 +39,7 @@ def is_goal_state(state):
 
 
 def action_is_applicable(state, action):
-    # Checks whether action is actually possible, i.e you can't suck a clean room
+    # Checks whether action is actually possible, ie you can't suck a clean room
     current_location = state.get_agent_location()
     possible_actions = ['Left', 'Right', 'Up', 'Down', 'Suck']
 
@@ -108,19 +105,7 @@ def get_action_cost(action):
         return 0.6
 
 
-def expand(node):
-    # Generates child node based on action costs and restraints
-    actions = ['Left', 'Right', 'Up', 'Down', 'Suck']
-    successors = []
-    for action in actions:
-        child_state = apply_action(node.state, action)
-        if child_state:
-            cost = get_action_cost(action)
-            child_node = Node(child_state, action, node, cost)
-            successors.append(child_node)
-        return successors
-
-
-def extract_solution(final_node):
-   pass
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+
+
